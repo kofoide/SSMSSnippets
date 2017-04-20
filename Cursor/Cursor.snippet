@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+<_locDefinition xmlns="urn:locstudio">
+    <_locDefault _loc="locNone" />
+    <_locTag _loc="locData">Title</_locTag>
+    <_locTag _loc="locData">Description</_locTag>
+    <_locTag _loc="locData">Author</_locTag>
+    <_locTag _loc="locData">ToolTip</_locTag>
+</_locDefinition>
+	<CodeSnippet Format="1.0.0">
+	<Header>
+	<Title>Cursor</Title>
+        <Shortcut></Shortcut>
+	<Description>Creates Cursor Shell</Description>
+	<Author>Eric Kofoid</Author>
+	<SnippetTypes>
+		<SnippetType>Expansion</SnippetType>
+	</SnippetTypes>
+	</Header>
+	<Snippet>
+		<Declarations>
+			<Literal>
+				<ID>CursorName</ID>
+				<ToolTip>Name of the Cursor</ToolTip>
+				<Default>cursorname</Default>
+			</Literal>
+			<Literal>
+				<ID>column1</ID>
+				<ToolTip>Name of first column</ToolTip>
+				<Default>column1</Default>
+			</Literal>
+			<Literal>
+				<ID>column2</ID>
+				<ToolTip>Name of second column</ToolTip>
+				<Default>column2</Default>
+			</Literal>
+		</Declarations>
+		<Code Language="SQL">
+			<![CDATA[DECLARE @$column1$ INT, @$column2$ INT
+DECLARE $CursorName$ CURSOR FOR
+SELECT $column1$, $column2$
+FROM 
+
+OPEN $CursorName$
+
+FETCH NEXT FROM $CursorName$
+INTO @$column1$, @$column2$
+$end$]]>
+		</Code>
+	</Snippet>
+	</CodeSnippet>
+</CodeSnippets>

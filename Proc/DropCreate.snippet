@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+<_locDefinition xmlns="urn:locstudio">
+    <_locDefault _loc="locNone" />
+    <_locTag _loc="locData">Title</_locTag>
+    <_locTag _loc="locData">Description</_locTag>
+    <_locTag _loc="locData">Author</_locTag>
+    <_locTag _loc="locData">ToolTip</_locTag>
+</_locDefinition>
+	<CodeSnippet Format="1.0.0">
+	<Header>
+	<Title>Drop/Create Stored Procedure</Title>
+        <Shortcut></Shortcut>
+	<Description>Drops a stored procedure.</Description>
+	<Author>Eric Kofoid</Author>
+	<SnippetTypes>
+		<SnippetType>Expansion</SnippetType>
+	</SnippetTypes>
+	</Header>
+	<Snippet>
+		<Declarations>
+			<Literal>
+				<ID>SchemaName</ID>
+				<ToolTip>Name of the schema</ToolTip>
+				<Default>dbo</Default>
+			</Literal>
+			<Literal>
+				<ID>ProcedureName</ID>
+				<ToolTip>Name of the stored procedure</ToolTip>
+				<Default>ProcedureName</Default>
+			</Literal>
+		</Declarations>
+		<Code Language="SQL">
+			<![CDATA[IF OBJECT_ID(N'$SchemaName$.$ProcedureName$', N'P') IS NOT NULL
+  DROP PROCEDURE $SchemaName$.$ProcedureName$
+GO
+
+CREATE PROC $SchemaName$.$ProcedureName$
+AS
+
+$end$]]>
+		</Code>
+	</Snippet>
+	</CodeSnippet>
+</CodeSnippets>
